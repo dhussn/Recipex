@@ -1,0 +1,56 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Page Layout */
+.page {
+  display: block;
+}
+
+/* Banner */
+.banner {
+  width: 90%;
+  max-width: 400px;
+  background-color: #87CEEB; /* Light Blue */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Form and Buttons */
+input, select, textarea, button {
+  width: 90%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #98FB98; /* Pale Green */
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #90EE90;
+}
+
+button.go-back-btn {
+  background-color: #FFCCCB; /* Light Red */
+  width: 60%;
+  padding: 12px;
+}
+
+button.go-back-btn:hover {
+  background-color: #F08080;
+}
