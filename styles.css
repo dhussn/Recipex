@@ -1,81 +1,73 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+// Global variable to track the current page
+let currentPage = "login";  // Options: login, welcome, upload, retrieve, invite
+
+function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    
+    // Basic validation
+    if (email && password) {
+        currentPage = "welcome";
+        changePage();
+    } else {
+        alert("Please enter both email and password.");
+    }
 }
 
-/* Page Layout */
-.page {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    margin: 20px auto;
+function showUploadPage() {
+    currentPage = "upload";
+    changePage();
 }
 
-/* Banner Style */
-.banner {
-    background-color: #4682b4;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 1.5rem;
-    font-weight: bold;
+function showRetrievePage() {
+    currentPage = "retrieve";
+    changePage();
 }
 
-/* Input fields, buttons, and textareas */
-input, select, textarea, button {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+function showInvitePage() {
+    currentPage = "invite";
+    changePage();
 }
 
-input[type="file"] {
-    padding: 10px;
+function logout() {
+    currentPage = "login";
+    changePage();
 }
 
-/* Button Styles */
-.green-button {
-    background-color: #98fb98; /* Pale Green */
-    border: none;
-    color: white;
-    cursor: pointer;
+function saveRecipe() {
+    // Save the recipe logic
+    alert("Recipe saved!");
+    currentPage = "welcome";
+    changePage();
 }
 
-.green-button:hover {
-    background-color: #90ee90; /* Slightly darker green */
+function searchRecipe() {
+    // Search recipe logic
+    alert("Searching for recipe...");
 }
 
-.back-button {
-    background-color: #ffdab9; /* Peach Puff */
-    width: 60%;
-    padding: 12px;
-    border: none;
-    cursor: pointer;
+function sendInvite() {
+    // Send invite logic
+    alert("Invite sent!");
+    currentPage = "welcome";
+    changePage();
 }
 
-.back-button:hover {
-    background-color: #ffb6c1; /* Light Pink */
+function goBack() {
+    if (currentPage === "upload" || currentPage === "retrieve" || currentPage === "invite") {
+        currentPage = "welcome";
+    } else if (currentPage === "welcome") {
+        currentPage = "login";
+    }
+    changePage();
 }
 
-/* Textarea Style */
-textarea {
-    height: 100px;
-}
-
-/* Centering content */
-.page {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+function changePage() {
+    // Hide all pages
+    document.querySelectorAll(".page").forEach(page => {
+        page.style.display = "none";
+    });
+    
+    // Show the current page
+    document.getElementById(`${currentPage}-page`).style.display = "block";
 }
