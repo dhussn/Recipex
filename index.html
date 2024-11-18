@@ -1,73 +1,73 @@
-<link rel="stylesheet" href="./style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Recipes</title>
+    <!-- Updated CSS link to ensure it works on GitHub -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+<!-- Login Page -->
+<div id="login-page" class="page">
+    <div class="banner">Login to Family Recipes</div>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button class="green-button" onclick="login()">Login</button>
+</div>
 
-.page {
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
+<!-- Welcome Page (Page 2) -->
+<div id="welcome-page" class="page" style="display: none;">
+    <div class="banner">Welcome to Family Recipes</div>
+    <button class="green-button" onclick="showUploadPage()">Upload Recipe</button>
+    <button class="green-button" onclick="showRetrievePage()">Retrieve Recipe</button>
+    <button class="green-button" onclick="showInvitePage()">Invite Friend</button>
+    <button class="green-button" onclick="logout()">Logout</button>
+</div>
 
-/* Banner */
-.banner {
-    background-color: #add8e6; /* Blue */
-    color: white;
-    padding: 20px;
-    font-size: 1.5rem;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
+<!-- Upload Recipe Page -->
+<div id="upload-recipe-page" class="page" style="display: none;">
+    <div class="banner">Upload a Recipe</div>
+    <input type="file" id="recipe-photo" accept="image/*">
+    <input type="text" id="recipe-name" placeholder="Recipe Name">
+    <select id="recipe-category">
+        <option value="appetizer">Appetizer</option>
+        <option value="main">Main Dish</option>
+        <option value="side">Side Dish</option>
+        <option value="dessert">Dessert</option>
+        <option value="cocktail">Cocktail</option>
+        <option value="unclassified">Unclassified</option>
+    </select>
+    <textarea id="recipe-note" placeholder="Note (optional)"></textarea>
+    <button class="green-button" onclick="saveRecipe()">Save</button>
+    <button class="peach-button" onclick="goBack()">Back</button>
+</div>
 
-/* Buttons */
-button {
-    width: 100%; /* Matches the banner and inputs */
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    color: black; /* Black text on buttons */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #98fb98; /* Pale Green */
-}
+<!-- Retrieve Recipe Page -->
+<div id="retrieve-recipe-page" class="page" style="display: none;">
+    <div class="banner">Retrieve a Recipe</div>
+    <input type="text" id="search-name" placeholder="Search by Recipe Name">
+    <select id="search-category">
+        <option value="all">All Categories</option>
+        <option value="appetizer">Appetizer</option>
+        <option value="main">Main Dish</option>
+        <option value="side">Side Dish</option>
+        <option value="dessert">Dessert</option>
+        <option value="cocktail">Cocktail</option>
+    </select>
+    <button class="green-button" onclick="searchRecipe()">Search</button>
+    <button class="peach-button" onclick="goBack()">Back</button>
+</div>
 
-/* Button Hover Effects */
-button:hover {
-    background-color: #90ee90; /* Slightly darker green */
-}
+<!-- Invite Friend Page -->
+<div id="invite-page" class="page" style="display: none;">
+    <div class="banner">Invite a Friend</div>
+    <input type="email" id="invite-email" placeholder="Friend's Email">
+    <button class="green-button" onclick="sendInvite()">Send Invite</button>
+    <button class="peach-button" onclick="goBack()">Back</button>
+</div>
 
-/* Peach Button */
-.peach-button {
-    background-color: #ffdab9; /* Peach */
-}
-
-.peach-button:hover {
-    background-color: #ffb6c1; /* Light Pink */
-}
-
-/* Inputs */
-input, textarea, select {
-    width: 100%; /* Matches banner width */
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-weight: normal; /* Regular text, not bold */
-}
-
-/* Additional Styles for Textarea */
-textarea {
-    resize: none; /* Prevent resizing for consistency */
-    height: 100px; /* Fixed height */
-}
+<script src="script.js"></script>
+</body>
+</html>
