@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Family Recipes</title>
-    <link rel="stylesheet" href="style.css"> <!-- Ensure this points to your CSS file -->
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Login Page -->
     <div id="login-page" class="page">
         <div class="banner">Login to Family Recipes</div>
@@ -32,13 +32,13 @@
         <input type="text" id="recipe-name" placeholder="Recipe Name">
         <select id="recipe-category">
             <option value="appetizer">Appetizer</option>
-            <option value="main">Main Dish</option>
+            <option value="main">Main Course</option>
             <option value="side">Side Dish</option>
             <option value="dessert">Dessert</option>
             <option value="cocktail">Cocktail</option>
             <option value="unclassified">Unclassified</option>
         </select>
-        <textarea id="recipe-note" placeholder="Notes (optional)"></textarea>
+        <textarea id="recipe-note" placeholder="Note (optional)"></textarea>
         <button class="green-button" onclick="saveRecipe()">Save</button>
         <button class="back-button" onclick="goBack()">Back</button>
     </div>
@@ -50,7 +50,7 @@
         <select id="search-category">
             <option value="all">All Categories</option>
             <option value="appetizer">Appetizer</option>
-            <option value="main">Main Dish</option>
+            <option value="main">Main Course</option>
             <option value="side">Side Dish</option>
             <option value="dessert">Dessert</option>
             <option value="cocktail">Cocktail</option>
@@ -67,6 +67,7 @@
         <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
-    <script src="script.js"></script> <!-- Ensure this points to your JavaScript file -->
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
 </body>
 </html>
