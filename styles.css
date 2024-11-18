@@ -11,42 +11,34 @@ body {
 }
 
 .page {
+    display: none;
     width: 100%;
     max-width: 400px;
-    text-align: center;
-    display: none;
     padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-/* Show active page */
-.page.active {
-    display: block;
-}
-
-/* Banner */
 .banner {
-    background-color: #007bff;
+    background-color: #007BFF;
     color: white;
-    font-size: 1.5rem;
     padding: 15px;
-    border-radius: 4px;
+    font-size: 1.5rem;
+    border-radius: 5px;
     margin-bottom: 20px;
 }
 
-/* Input Fields and Textareas */
 input, select, textarea, button {
     width: 100%;
-    max-width: 350px;
-    margin: 10px auto;
-    padding: 12px;
+    max-width: 300px;
+    margin: 10px 0;
+    padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 5px;
 }
 
 textarea {
@@ -54,25 +46,21 @@ textarea {
     height: 100px;
 }
 
-/* Buttons */
 button {
-    background-color: #90ee90;
+    background-color: #98fb98; /* Pale Green */
     color: black;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #77dd77;
+    background-color: #90ee90;
 }
 
 .back-button {
-    background-color: #ffdab9;
+    background-color: #ffdab9; /* Peach */
 }
 
 .back-button:hover {
-    background-color: #ffc4a3;
+    background-color: #ffb6c1; /* Light Pink */
 }
