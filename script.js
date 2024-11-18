@@ -71,4 +71,3 @@ function changePage() {
     // Show the current page
     document.getElementById(`${currentPage}-page`).style.display = "block";
 }
-
