@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
 // Show specific page and hide others
 function showPage(pageId) {
     const pages = document.querySelectorAll('.page');
