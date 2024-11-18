@@ -1,94 +1,74 @@
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+// Global variable to track the current page
+let currentPage = "login";  // Options: login, welcome, upload, retrieve, invite
 
-// Show specific page and hide others
-function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
-}
-
-// Login function
 function login() {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    
+    // Basic validation
     if (email && password) {
-        // Clear fields and show welcome page
-        document.getElementById('email').value = '';
-        document.getElementById('password').value = '';
-        showPage('welcome-page');
+        currentPage = "welcome";
+        changePage();
     } else {
-        alert('Please enter both email and password.');
+        alert("Please enter both email and password.");
     }
 }
 
-// Logout function
-function logout() {
-    showPage('login-page');
-}
-
-// Show Upload Recipe page
 function showUploadPage() {
-    showPage('upload-recipe-page');
+    currentPage = "upload";
+    changePage();
 }
 
-// Show Retrieve Recipe page
 function showRetrievePage() {
-    showPage('retrieve-recipe-page');
+    currentPage = "retrieve";
+    changePage();
 }
 
-// Show Invite Friend page
 function showInvitePage() {
-    showPage('invite-page');
+    currentPage = "invite";
+    changePage();
 }
 
-// Save Recipe function
+function logout() {
+    currentPage = "login";
+    changePage();
+}
+
 function saveRecipe() {
-    const recipePhoto = document.getElementById('recipe-photo').files[0];
-    const recipeName = document.getElementById('recipe-name').value.trim();
-    const recipeCategory = document.getElementById('recipe-category').value;
-    const recipeNote = document.getElementById('recipe-note').value.trim();
-
-    if (recipeName) {
-        alert(`Recipe "${recipeName}" saved successfully.`);
-        // Clear fields
-        document.getElementById('recipe-photo').value = '';
-        document.getElementById('recipe-name').value = '';
-        document.getElementById('recipe-category').value = 'appetizer';
-        document.getElementById('recipe-note').value = '';
-        goBack();
-    } else {
-        alert('Recipe Name is required.');
-    }
+    // Save the recipe logic
+    alert("Recipe saved!");
+    currentPage = "welcome";
+    changePage();
 }
 
-// Search Recipe function
 function searchRecipe() {
-    const searchName = document.getElementById('search-name').value.trim();
-    const searchCategory = document.getElementById('search-category').value;
-
-    alert(`Searching for recipes with name: "${searchName}" and category: "${searchCategory}"`);
-    goBack();
+    // Search recipe logic
+    alert("Searching for recipe...");
 }
 
-// Send Invite function
 function sendInvite() {
-    const inviteEmail = document.getElementById('invite-email').value.trim();
-
-    if (inviteEmail) {
-        alert(`Invitation sent to ${inviteEmail}`);
-        document.getElementById('invite-email').value = '';
-        goBack();
-    } else {
-        alert('Please enter an email address.');
-    }
+    // Send invite logic
+    alert("Invite sent!");
+    currentPage = "welcome";
+    changePage();
 }
 
-// Go back to the welcome page
 function goBack() {
-    showPage('welcome-page');
+    if (currentPage === "upload" || currentPage === "retrieve" || currentPage === "invite") {
+        currentPage = "welcome";
+    } else if (currentPage === "welcome") {
+        currentPage = "login";
+    }
+    changePage();
 }
 
-// Initialize the app by showing the login page
-showPage('login-page');
+function changePage() {
+    // Hide all pages
+    document.querySelectorAll(".page").forEach(page => {
+        page.style.display = "none";
+    });
+    
+    // Show the current page
+    document.getElementById(`${currentPage}-page`).style.display = "block";
+}
+
