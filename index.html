@@ -1,73 +1,71 @@
-// Global variable to track the current page
-let currentPage = "login";  // Options: login, welcome, upload, retrieve, invite
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Recipes App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <div id="screen1" class="screen">
+      <h1>Family Recipes App</h1>
+      <div class="input-container">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+      </div>
+      <button class="action-btn" id="login-btn">Login</button>
+    </div>
 
-function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    
-    // Basic validation
-    if (email && password) {
-        currentPage = "welcome";
-        changePage();
-    } else {
-        alert("Please enter both email and password.");
-    }
-}
+    <div id="screen2" class="screen hidden">
+      <h1>Welcome to Recipex</h1>
+      <button class="action-btn" id="upload-recipe-btn">Upload a Recipe</button>
+      <button class="action-btn" id="retrieve-recipe-btn">Retrieve a Recipe</button>
+      <button class="action-btn" id="invite-btn">Invite Someone</button>
+      <button class="action-btn" id="logout-btn">Log Out</button>
+    </div>
 
-function showUploadPage() {
-    currentPage = "upload";
-    changePage();
-}
+    <div id="upload-recipe-screen" class="screen hidden">
+      <h1>Upload a Recipe</h1>
+      <input type="text" id="recipe-name" placeholder="Recipe Name">
+      <select id="category">
+        <option value="">Category</option>
+        <option value="appetiser">Appetiser</option>
+        <option value="entre">Entrée</option>
+        <option value="side-dish">Side Dish</option>
+        <option value="dessert">Dessert</option>
+        <option value="cocktail">Cocktail</option>
+        <option value="unclassified">Unclassified</option>
+      </select>
+      <textarea id="recipe-note" placeholder="Notes"></textarea>
+      <input type="file" id="recipe-file">
+      <button class="action-btn" id="save-recipe-btn">Save Recipe</button>
+      <button class="action-btn" id="back-to-menu1">Back</button>
+    </div>
 
-function showRetrievePage() {
-    currentPage = "retrieve";
-    changePage();
-}
+    <div id="retrieve-recipe-screen" class="screen hidden">
+      <h1>Retrieve a Recipe</h1>
+      <input type="text" id="search-recipe-name" placeholder="Search by Recipe Name">
+      <select id="search-category">
+        <option value="">Search by Category</option>
+        <option value="appetiser">Appetiser</option>
+        <option value="entre">Entrée</option>
+        <option value="side-dish">Side Dish</option>
+        <option value="dessert">Dessert</option>
+        <option value="cocktail">Cocktail</option>
+        <option value="unclassified">Unclassified</option>
+      </select>
+      <button class="action-btn" id="search-recipe-btn">Search</button>
+      <button class="action-btn" id="back-to-menu2">Back</button>
+    </div>
 
-function showInvitePage() {
-    currentPage = "invite";
-    changePage();
-}
-
-function logout() {
-    currentPage = "login";
-    changePage();
-}
-
-function saveRecipe() {
-    // Save the recipe logic
-    alert("Recipe saved!");
-    currentPage = "welcome";
-    changePage();
-}
-
-function searchRecipe() {
-    // Search recipe logic
-    alert("Searching for recipe...");
-}
-
-function sendInvite() {
-    // Send invite logic
-    alert("Invite sent!");
-    currentPage = "welcome";
-    changePage();
-}
-
-function goBack() {
-    if (currentPage === "upload" || currentPage === "retrieve" || currentPage === "invite") {
-        currentPage = "welcome";
-    } else if (currentPage === "welcome") {
-        currentPage = "login";
-    }
-    changePage();
-}
-
-function changePage() {
-    // Hide all pages
-    document.querySelectorAll(".page").forEach(page => {
-        page.style.display = "none";
-    });
-    
-    // Show the current page
-    document.getElementById(`${currentPage}-page`).style.display = "block";
-}
+    <div id="invite-screen" class="screen hidden">
+      <h1>Invite Someone</h1>
+      <input type="email" id="invite-email" placeholder="Enter email">
+      <button class="action-btn" id="send-invite-btn">Send Invite</button>
+      <button class="action-btn" id="back-to-menu3">Back</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
