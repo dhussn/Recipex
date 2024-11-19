@@ -1,73 +1,70 @@
-// Global variable to track the current page
-let currentPage = "login";  // Options: login, welcome, upload, retrieve, invite
-
-function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    
-    // Basic validation
-    if (email && password) {
-        currentPage = "welcome";
-        changePage();
-    } else {
-        alert("Please enter both email and password.");
-    }
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #e0f7fa, #ffe0b2);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-function showUploadPage() {
-    currentPage = "upload";
-    changePage();
+.app-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
 }
 
-function showRetrievePage() {
-    currentPage = "retrieve";
-    changePage();
+h1 {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
-function showInvitePage() {
-    currentPage = "invite";
-    changePage();
+.input-container {
+  margin-bottom: 20px;
 }
 
-function logout() {
-    currentPage = "login";
-    changePage();
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-function saveRecipe() {
-    // Save the recipe logic
-    alert("Recipe saved!");
-    currentPage = "welcome";
-    changePage();
+textarea {
+  height: 80px;
+  resize: none;
 }
 
-function searchRecipe() {
-    // Search recipe logic
-    alert("Searching for recipe...");
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
 }
 
-function sendInvite() {
-    // Send invite logic
-    alert("Invite sent!");
-    currentPage = "welcome";
-    changePage();
+button:hover {
+  opacity: 0.9;
 }
 
-function goBack() {
-    if (currentPage === "upload" || currentPage === "retrieve" || currentPage === "invite") {
-        currentPage = "welcome";
-    } else if (currentPage === "welcome") {
-        currentPage = "login";
-    }
-    changePage();
+.action-btn {
+  background-color: #4caf50;
 }
 
-function changePage() {
-    // Hide all pages
-    document.querySelectorAll(".page").forEach(page => {
-        page.style.display = "none";
-    });
-    
-    // Show the current page
-    document.getElementById(`${currentPage}-page`).style.display = "block";
+.hidden {
+  display: none;
 }
