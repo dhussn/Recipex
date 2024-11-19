@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Recipes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <div id="screen1" class="screen">
+      <h1>Family Recipes</h1>
+      <div class="input-container">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+      </div>
+      <button class="action-btn" id="login-btn">Login</button>
+    </div>
+
+    <div id="screen2" class="screen hidden">
+      <h1>Welcome</h1>
+      <button class="action-btn" id="upload-recipe-btn">Upload a Recipe</button>
+      <button class="action-btn" id="retrieve-recipe-btn">Retrieve a Recipe</button>
+      <button class="action-btn" id="invite-btn">Invite</button>
+      <button class="action-btn" id="logout-btn">Log Out</button>
+    </div>
+
+    <div id="upload-recipe-screen" class="screen hidden">
+      <h1>Upload a Recipe</h1>
+      <input type="file" id="recipe-file">
+      <input type="text" id="recipe-name" placeholder="Recipe Name">
+      <select id="category" class="dropdown">
+        <option value="">Category</option>
+        <option value="appetiser">Appetiser</option>
+        <option value="entre">Entrée</option>
+        <option value="side-dish">Side Dish</option>
+        <option value="dessert">Dessert</option>
+        <option value="cocktail">Cocktail</option>
+        <option value="unclassified">Unclassified</option>
+      </select>
+      <textarea id="recipe-note" placeholder="Notes"></textarea>
+      <button class="action-btn" id="save-recipe-btn">Save Recipe</button>
+      <button class="action-btn" id="back-to-menu1">Back</button>
+    </div>
+
+    <div id="retrieve-recipe-screen" class="screen hidden">
+      <h1>Retrieve a Recipe</h1>
+      <input type="text" id="search-recipe-name" placeholder="Search by Recipe Name">
+      <select id="search-category" class="dropdown">
+        <option value="">Search by Category</option>
+        <option value="appetiser">Appetiser</option>
+        <option value="entre">Entrée</option>
+        <option value="side-dish">Side Dish</option>
+        <option value="dessert">Dessert</option>
+        <option value="cocktail">Cocktail</option>
+        <option value="unclassified">Unclassified</option>
+      </select>
+      <button class="action-btn" id="search-recipe-btn">Search</button>
+      <button class="action-btn" id="back-to-menu2">Back</button>
+    </div>
+
+    <div id="invite-screen" class="screen hidden">
+      <h1>Invite</h1>
+      <input type="email" id="invite-email" placeholder="Enter email">
+      <button class="action-btn" id="send-invite-btn">Send Invite</button>
+      <button class="action-btn" id="back-to-menu3">Back</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
