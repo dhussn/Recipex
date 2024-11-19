@@ -1,73 +1,57 @@
-// Global variable to track the current page
-let currentPage = "login";  // Options: login, welcome, upload, retrieve, invite
+document.addEventListener('DOMContentLoaded', () => {
+  const screen1 = document.getElementById('screen1');
+  const screen2 = document.getElementById('screen2');
+  const uploadScreen = document.getElementById('upload-recipe-screen');
+  const retrieveScreen = document.getElementById('retrieve-recipe-screen');
+  const inviteScreen = document.getElementById('invite-screen');
 
-function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    
-    // Basic validation
-    if (email && password) {
-        currentPage = "welcome";
-        changePage();
-    } else {
-        alert("Please enter both email and password.");
-    }
-}
+  const loginBtn = document.getElementById('login-btn');
+  const logoutBtn = document.getElementById('logout-btn');
+  const uploadRecipeBtn = document.getElementById('upload-recipe-btn');
+  const retrieveRecipeBtn = document.getElementById('retrieve-recipe-btn');
+  const inviteBtn = document.getElementById('invite-btn');
 
-function showUploadPage() {
-    currentPage = "upload";
-    changePage();
-}
+  const backToMenu1 = document.getElementById('back-to-menu1');
+  const backToMenu2 = document.getElementById('back-to-menu2');
+  const backToMenu3 = document.getElementById('back-to-menu3');
 
-function showRetrievePage() {
-    currentPage = "retrieve";
-    changePage();
-}
+  loginBtn.addEventListener('click', () => {
+    screen1.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  });
 
-function showInvitePage() {
-    currentPage = "invite";
-    changePage();
-}
+  logoutBtn.addEventListener('click', () => {
+    screen2.classList.add('hidden');
+    screen1.classList.remove('hidden');
+  });
 
-function logout() {
-    currentPage = "login";
-    changePage();
-}
+  uploadRecipeBtn.addEventListener('click', () => {
+    screen2.classList.add('hidden');
+    uploadScreen.classList.remove('hidden');
+  });
 
-function saveRecipe() {
-    // Save the recipe logic
-    alert("Recipe saved!");
-    currentPage = "welcome";
-    changePage();
-}
+  retrieveRecipeBtn.addEventListener('click', () => {
+    screen2.classList.add('hidden');
+    retrieveScreen.classList.remove('hidden');
+  });
 
-function searchRecipe() {
-    // Search recipe logic
-    alert("Searching for recipe...");
-}
+  inviteBtn.addEventListener('click', () => {
+    screen2.classList.add('hidden');
+    inviteScreen.classList.remove('hidden');
+  });
 
-function sendInvite() {
-    // Send invite logic
-    alert("Invite sent!");
-    currentPage = "welcome";
-    changePage();
-}
+  backToMenu1.addEventListener('click', () => {
+    uploadScreen.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  });
 
-function goBack() {
-    if (currentPage === "upload" || currentPage === "retrieve" || currentPage === "invite") {
-        currentPage = "welcome";
-    } else if (currentPage === "welcome") {
-        currentPage = "login";
-    }
-    changePage();
-}
+  backToMenu2.addEventListener('click', () => {
+    retrieveScreen.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  });
 
-function changePage() {
-    // Hide all pages
-    document.querySelectorAll(".page").forEach(page => {
-        page.style.display = "none";
-    });
-    
-    // Show the current page
-    document.getElementById(`${currentPage}-page`).style.display = "block";
-}
+  backToMenu3.addEventListener('click', () => {
+    inviteScreen.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  });
+});
