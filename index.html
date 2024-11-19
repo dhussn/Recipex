@@ -1,71 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Family Recipes App</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="app-container">
-    <div id="screen1" class="screen">
-      <h1>Family Recipes App</h1>
-      <div class="input-container">
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
-      </div>
-      <button class="action-btn" id="login-btn">Login</button>
-    </div>
+document.addEventListener('DOMContentLoaded', () => {
+  const screen1 = document.getElementById('screen1');
+  const screen2 = document.getElementById('screen2');
+  const uploadScreen = document.getElementById('upload-recipe-screen');
+  const retrieveScreen = document.getElementById('retrieve-recipe-screen');
+  const inviteScreen = document.getElementById('invite-screen');
 
-    <div id="screen2" class="screen hidden">
-      <h1>Welcome to Recipex</h1>
-      <button class="action-btn" id="upload-recipe-btn">Upload a Recipe</button>
-      <button class="action-btn" id="retrieve-recipe-btn">Retrieve a Recipe</button>
-      <button class="action-btn" id="invite-btn">Invite Someone</button>
-      <button class="action-btn" id="logout-btn">Log Out</button>
-    </div>
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const loginBtn = document.getElementById('login-btn');
+  const logoutBtn = document.getElementById('logout-btn');
+  const uploadRecipeBtn = document.getElementById('upload-recipe-btn');
+  const retrieveRecipeBtn = document.getElementById('retrieve-recipe-btn');
+  const inviteBtn = document.getElementById('invite-btn');
 
-    <div id="upload-recipe-screen" class="screen hidden">
-      <h1>Upload a Recipe</h1>
-      <input type="text" id="recipe-name" placeholder="Recipe Name">
-      <select id="category">
-        <option value="">Category</option>
-        <option value="appetiser">Appetiser</option>
-        <option value="entre">Entrée</option>
-        <option value="side-dish">Side Dish</option>
-        <option value="dessert">Dessert</option>
-        <option value="cocktail">Cocktail</option>
-        <option value="unclassified">Unclassified</option>
-      </select>
-      <textarea id="recipe-note" placeholder="Notes"></textarea>
-      <input type="file" id="recipe-file">
-      <button class="action-btn" id="save-recipe-btn">Save Recipe</button>
-      <button class="action-btn" id="back-to-menu1">Back</button>
-    </div>
+  const backToMenu1 = document.getElementById('back-to-menu1');
+  const backToMenu2 = document.getElementById('back-to-menu2');
+  const backToMenu3 = document.getElementById('back-to-menu3');
 
-    <div id="retrieve-recipe-screen" class="screen hidden">
-      <h1>Retrieve a Recipe</h1>
-      <input type="text" id="search-recipe-name" placeholder="Search by Recipe Name">
-      <select id="search-category">
-        <option value="">Search by Category</option>
-        <option value="appetiser">Appetiser</option>
-        <option value="entre">Entrée</option>
-        <option value="side-dish">Side Dish</option>
-        <option value="dessert">Dessert</option>
-        <option value="cocktail">Cocktail</option>
-        <option value="unclassified">Unclassified</option>
-      </select>
-      <button class="action-btn" id="search-recipe-btn">Search</button>
-      <button class="action-btn" id="back-to-menu2">Back</button>
-    </div>
+  loginBtn.addEventListener('click', () => {
+    screen1.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  });
 
-    <div id="invite-screen" class="screen hidden">
-      <h1>Invite Someone</h1>
-      <input type="email" id="invite-email" placeholder="Enter email">
-      <button class="action-btn" id="send-invite-btn">Send Invite</button>
-      <button class="action-btn" id="back-to-menu3">Back</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+  logoutBtn.addEventListener('click', () => {
+    screen2.classList.add('hidden');
+    emailInput.value = '';
+    passwordInput.value = '';
+    screen1.classList.remove('hidden');
+  });
+
+  uploadRecipeBtn.addEventListener('click', () => {
+    screen2.classList.add('hidden');
+    uploadScreen.classList.remove('hidden');
+  });
+
+  retrieveRecipeBtn.addEventListener('click', () => {
+    screen2.classList.add('hidden');
+    retrieveScreen.classList.remove('hidden');
+  });
+
+  inviteBtn.addEventListener('click', () => {
+    screen2.classList.add('hidden');
+    inviteScreen.classList.remove('hidden');
+  });
+
+  backToMenu1.addEventListener('click', () => {
+    uploadScreen.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  });
+
+  backToMenu2.addEventListener('click', () => {
+    retrieveScreen.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  });
+
+  backToMenu3.addEventListener('click', () => {
+    inviteScreen.classList.add('hidden');
+    screen2.classList.remove('hidden');
+  });
+});
