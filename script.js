@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const retrieveScreen = document.getElementById('retrieve-recipe-screen');
   const inviteScreen = document.getElementById('invite-screen');
 
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
   const loginBtn = document.getElementById('login-btn');
   const logoutBtn = document.getElementById('logout-btn');
   const uploadRecipeBtn = document.getElementById('upload-recipe-btn');
@@ -22,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   logoutBtn.addEventListener('click', () => {
     screen2.classList.add('hidden');
+    emailInput.value = '';
+    passwordInput.value = '';
     screen1.classList.remove('hidden');
   });
 
